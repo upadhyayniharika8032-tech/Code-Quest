@@ -1,5 +1,4 @@
-
-const API = "https://code-quest-0jmd.onrender.com/api/health?utm_source=chatgpt.com";
+const API = "https://code-quest-0imd.onrender.com/api";
 
 const authSection = document.getElementById("authSection");
 const appSection = document.getElementById("appSection");
