@@ -1,5 +1,5 @@
 
-const API = "http://localhost:3000/api";
+const API = "https://code-quest-ih3x.onrender.com/api";
 
 const authSection = document.getElementById("authSection");
 const appSection = document.getElementById("appSection");
