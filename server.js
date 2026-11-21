@@ -17,6 +17,7 @@ const server = http.createServer((req, res) => {
     }
 
     const path = new URL(req.url, "http://localhost").pathname;
+    console.log("Request received:", req.method, req.url);
 
     if (path === "/api/health" && req.method === "GET") {
         res.writeHead(200, {
