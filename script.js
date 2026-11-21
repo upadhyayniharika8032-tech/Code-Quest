@@ -1,5 +1,5 @@
 
-const API = "https://code-quest-ih3x.onrender.com/api";
+const API = "https://code-quest-f1lv.onrender.com/api";
 
 const authSection = document.getElementById("authSection");
 const appSection = document.getElementById("appSection");
