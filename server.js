@@ -16,8 +16,9 @@ const server = http.createServer((req, res) => {
         return res.end();
     }
 
-    // Health Check API
-    if (req.url === "/api/health" && req.method === "GET") {
+    const path = new URL(req.url, "http://localhost").pathname;
+
+    if (path === "/api/health" && req.method === "GET") {
         res.writeHead(200, {
             "Content-Type": "application/json"
         });
@@ -27,17 +28,14 @@ const server = http.createServer((req, res) => {
         }));
     }
 
-    // Signup API
-    if (req.url === "/api/signup" && req.method === "POST") {
+    if (path === "/api/signup" && req.method === "POST") {
         return signup(req, res);
     }
 
-    // Login API
-    if (req.url === "/api/login" && req.method === "POST") {
+    if (path === "/api/login" && req.method === "POST") {
         return login(req, res);
     }
 
-    // Invalid Route
     res.writeHead(404, {
         "Content-Type": "application/json"
     });
@@ -45,9 +43,10 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({
         message: "Route not found"
     }));
-
 });
 
-server.listen(3000, () => {
-    console.log("Code Quest server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, "0.0.0.0", () => {
+    console.log("Code Quest server running on port " + PORT);
 });
